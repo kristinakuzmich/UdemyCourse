@@ -1,0 +1,37 @@
+'use strict';
+
+const arr = [1, 2, 3, 6, 8];
+arr[99] = 0;
+console.log(arr.length);//length считает последний индекс массива arr+1
+console.log(arr);
+
+arr.forEach(function(item, i, arr){//еще один способ перебрать элементы массива
+    console.log(${i}: ${item} внутри массива ${arr});
+});
+
+arr.pop();//удаляет последний элемент массива
+arr.push(10);//добавляет элемент в конец массива
+console.group(arr);
+
+for(let i=0; i<arr.length; i++){
+    console.log(arr[i]);
+}
+
+//метод "for of"
+for (let value of arr){//метод перебора элементов предпочтительнее, чем forEach, 
+    console.log(value);//если нужно использовать break или continue
+}
+
+const str = prompt('', '');
+const products = str.split(', ');//метод split
+products.sort;
+console.log(products.join('; '));//метод join
+
+
+const array = [1, 52, 23, 96, 18];
+array.sort(compareNum);//метод sort
+console.log(array);
+
+function compareNum(a, b){
+    return a-b;
+}
