@@ -105,3 +105,49 @@ function fib(num){
     return str.trim();
 }
 console.log(fib(6));
+
+
+//Задача
+//Возвращает строку с опытом 
+const personalPlanPeter = {
+    name: 'Peter',
+    age: '29',
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    //Возвращает в виде строки 'Мне 29 и я владею языками: RU ENG '
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = Мне ${age} и я владею языками: ;
+
+        languages.forEach(function(lang) {
+            str += ${lang.toUpperCase()} ;
+        });
+
+        return str;
+    }
+};
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+//Возвращает строку опыта
+function showExperience(plan){
+    return plan.skills.exp;}
+console.log(showExperience(personalPlanPeter));
+
+//Возвращает в виде строки 'Язык js изучен на 20%'
+function showProgrammingLangs(plan){
+    let {programmingLangs} = plan.skills;
+    let str = '';
+    for(let key in programmingLangs){
+        str += Язык ${key} изучен на ${programmingLangs[key]}\n;
+    }
+    return str;
+}
+console.log(showProgrammingLangs(personalPlanPeter));
