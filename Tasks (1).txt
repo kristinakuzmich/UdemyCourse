@@ -1,0 +1,153 @@
+'use strict';
+
+//Задача
+//Формирование пирамиды
+const lines = 5;
+let results = '';
+for(let i=0;i<=lines;i++){
+    for(let j=0;j<lines-i;j++){
+    results += ' ';
+}
+for(let j=0;j<2*i+1;j++){
+    results += '*';
+}
+results+='\n';
+}
+console.log(results);
+
+//Задача 
+//Вычислить объем и площадь куба по его ребру
+function calculatedVolumeAndArea(rebro){
+    if(rebro===null  rebro ===''  isNaN(rebro)){
+        console.log('При вычислении произошла ошибка');
+    } else {
+        let S = 6*rebro*rebro;
+        let V = rebro*rebro*rebro;
+        console.log(Объем куба: ${V}, площадь всей поверхности: ${S});
+    }
+    }
+    
+    calculatedVolumeAndArea(2);
+
+
+//Задача
+//Функция должна возвращать количество минут в часы и минуты
+function getTimeFromMinutes(min){
+if(typeof(min)!=='number'  min<0  !Number.isInteger(min)){
+    return 'Ошибка, проверьте данные';
+}
+let hours = Math.floor(min/60);
+let mins = min%60;
+let hour_word = '';
+if(hours == 1){
+    hour_word = 'час';
+} else if(hours>=2 && hours<=4){
+    hour_word = 'часа';
+} else hour_word = 'часов';
+console.log (Это ${hours} ${hour_word} и ${mins} минут);
+return Это ${hours} ${hour_word} и ${mins} минут;
+}
+
+getTimeFromMinutes(210);
+
+
+//Задача
+//Найти наибольшее число среди аргументов функции
+function findMaxNumber(n1, n2, n3, n4){
+    let arr = [n1, n2, n3, n4];
+    if(typeof(n1)!=='number'  typeof(n2)!=='number'  typeof(n3)!=='number'  typeof(n4)!=='number'  arr.length<4){
+        return 0;
+    }
+    let high = arr[0];
+    for(let i=0; i<arr.length; i++){
+        if (high<arr[i+1]){
+            high = arr[i+1];
+        }
+    }
+    //или же есть функция
+    // Math.max(n1, n2, n3, n4);
+    return high;
+}
+    console.log(findMaxNumber(1,2,3,4));
+
+
+//Задача
+//Функция должна определять номер купе по переданному номеру места
+function getCoupleNumber(num){
+    if(typeof(num)!=='number'  num<0  !Number.isInteger(num)){
+        return 'Ошибка, проверьте правильность введенного номера места';
+    }
+    if(num===0  num>36){
+        return 'Таких мест в вагоне не существует';
+    }
+    return Math.ceil(num/4);
+}
+console.log(getCoupleNumber(9));
+
+
+//Задача
+//Числа Фибоначчи
+function fib(num){
+    let str = '';
+    if (typeof(num)!=='number'  num<0 || !Number.isInteger(num)){
+        return '';
+    }
+    if (num==1){
+        return '0';
+    }
+    let arr = [0, 1];
+    for(let i=0; i<num-2;i++){
+        arr.push(arr[arr.length-1]+arr[arr.length-2]);
+    }
+    for(let prop of arr){
+        str+= prop + ' ';
+    }
+    return str.trim();
+}
+console.log(fib(6));
+
+
+//Задача
+//Возвращает строку с опытом 
+const personalPlanPeter = {
+    name: 'Peter',
+    age: '29',
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    //Возвращает в виде строки 'Мне 29 и я владею языками: RU ENG '
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = Мне ${age} и я владею языками: ;
+
+        languages.forEach(function(lang) {
+            str += ${lang.toUpperCase()} ;
+        });
+
+        return str;
+    }
+};
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+//Возвращает строку опыта
+function showExperience(plan){
+    return plan.skills.exp;}
+console.log(showExperience(personalPlanPeter));
+
+//Возвращает в виде строки 'Язык js изучен на 20%'
+function showProgrammingLangs(plan){
+    let {programmingLangs} = plan.skills;
+    let str = '';
+    for(let key in programmingLangs){
+        str += Язык ${key} изучен на ${programmingLangs[key]}\n;
+    }
+    return str;
+}
+console.log(showProgrammingLangs(personalPlanPeter));
